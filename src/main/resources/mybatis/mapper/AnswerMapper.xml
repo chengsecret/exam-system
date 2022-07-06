@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.ctstudy.mapper.AnswerMapper">
+    <insert id="addAnswer" parameterType="Answer">
+        insert into answer(commit, flag, score, gid, qid)
+        VALUES (#{commit},#{flag},#{score},#{gid},#{qid})
+    </insert>
+
+    <update id="updateAnswer" parameterType="Answer">
+        update answer
+        set commit=#{answer.commit},flag=#{answer.flag},score=#{answer.score}
+        where aid=#{aid}
+    </update>
+
+    <select id="selectAnswer" resultType="Answer">
+        select * from answer where gid=#{gid} and qid=#{qid}
+    </select>
+
+
+</mapper>

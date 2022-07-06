@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="work.ctstudy.mapper.UserMapper">
+    <insert id="addUser" parameterType="User" keyProperty="uid" useGeneratedKeys="true">
+        insert into user (salt, password, name, num, classroom)
+        VALUES (#{salt},#{password},#{name},#{num},#{classroom})
+    </insert>
+
+    <select id="selectUserByNum" resultType="User">
+        select * from user where num=#{num}
+    </select>
+
+    <update id="updateUserById">
+        update user
+        set name=#{name},classroom=#{classroom}
+        where uid=#{uid}
+    </update>
+
+    <update id="updatePasswordById">
+        update user
+        set password=#{password},salt=#{salt}
+        where uid=#{uid}
+    </update>
+
+</mapper>

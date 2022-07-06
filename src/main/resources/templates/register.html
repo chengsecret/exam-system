@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+
+    <link rel="stylesheet" th:href="@{/boot/css/bootstrap.min.css}"/>
+    <script th:src="@{/boot/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/boot/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <!--导航栏-->
+    <div th:replace="~{commons/commons::topbar}"></div>
+
+    <div class="row">
+        <h1 class="col-sm-6 col-sm-offset-3 text-center"><small>用户注册</small></h1>
+
+        <div class="col-sm-6 col-sm-offset-3">
+            <span class="text-danger text-right" th:text="${msg}"></span>
+            <form action="/user/toRegister" method="post">
+                <div class="form-group">
+                    <label for="username">姓名：</label>
+                    <input type="text" class="form-control" id="username" name="name" placeholder="如：张三">
+                </div>
+                <div class="form-group">
+                    <label for="usernum">学号:</label>
+                    <input type="text" class="form-control" id="usernum" name="num" placeholder="如：18012345">
+                </div>
+                <div class="form-group">
+                    <label for="userclass">班级:</label>
+                    <input type="text" class="form-control" id="userclass" name="classroom" placeholder="如：18054321">
+                </div>
+                <div class="form-group">
+                    <label for="userpassword">密码:</label>
+                    <input type="password" class="form-control" id="userpassword" name="password" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label for="verityCode">请输入验证码：</label>
+                    <div>
+                        <input type="text" class="form-control" style="width: 50%;float: left" id="verityCode" name="code"
+                               placeholder="验证码">
+                        <a href="/user/register"><img src="/user/verifyCodePicture"
+                                                      style="float: left;width: 40%;height: 40px;margin-left: 10px" alt=""></a>
+                    </div>
+                </div>
+                <div class="clearfix" style="margin-bottom: 30px"></div>
+
+                <button type="submit" class="btn btn-default col-sm-7 btn-primary">注册</button>
+                <a class="btn col-sm-4 btn-success" style="margin-left: 10px" href="/user/login">返回登录页面</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

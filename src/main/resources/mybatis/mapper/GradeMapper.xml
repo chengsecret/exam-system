@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.ctstudy.mapper.GradeMapper">
+    <insert id="addGrade" parameterType="Grade" keyProperty="gid" useGeneratedKeys="true">
+        insert into grade(uid, pid, score, flag)
+        VALUES (#{uid},#{pid},#{score},#{flag})
+    </insert>
+
+    <select id="selectGrade" resultType="Grade">
+        select * from grade
+        where uid=#{uid} and pid=#{pid}
+    </select>
+
+    <update id="updateGrade" parameterType="Grade">
+        update grade
+        set uid=#{uid},pid=#{pid},score=#{score},flag=#{flag}
+        where gid=#{gid}
+    </update>
+</mapper>

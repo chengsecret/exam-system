@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>试卷管理</title>
+    <link rel="stylesheet" th:href="@{/boot/css/bootstrap.min.css}"/>
+    <script th:src="@{/boot/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/boot/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<!--导航栏-->
+<div th:replace="~{commons/commons::topbar}"></div>
+
+<div class="row">
+    <div class="col-sm-2" >
+        <!--左边的菜单-->
+        <div th:replace="~{commons/commons::leftbar(open=${open})}"></div>
+    </div>
+    <h3 class="col-sm-10 text-center text-danger">试卷管理----------功能未开发</h3>
+</div>
+
+</body>
+</html>
